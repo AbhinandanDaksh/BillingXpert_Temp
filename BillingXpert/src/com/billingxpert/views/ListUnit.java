@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class Start {
+public class ListUnit {
 
 	private JFrame frame;
 
@@ -15,7 +15,7 @@ public class Start {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Start window = new Start();
+					ListUnit window = new ListUnit();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -23,12 +23,11 @@ public class Start {
 			}
 		});
 	}
-	// These other files are made and you first have to work on start and login.java files i.e create their gui????
 
 	/**
 	 * Create the application.
 	 */
-	public Start() {
+	public ListUnit() {
 		initialize();
 	}
 
