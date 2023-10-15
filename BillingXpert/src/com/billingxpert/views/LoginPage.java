@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 //import java.awt.image.*;
 
+import javax.swing.ImageIcon;
 //import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -43,7 +44,7 @@ public class LoginPage extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(500,600);
 		setResizable(false);
-		setTitle("Login");
+		setTitle("BillingXpert");
 		setLocationRelativeTo(null);
 		JLabel welcome=new JLabel("Login");
 		welcome.setFont(new Font("Tahoma", Font.BOLD, 45));
@@ -53,8 +54,12 @@ public class LoginPage extends JFrame{
 		container.add(welcome);
 		
 		
-//		ImageIcon img=new ImageIcon(/img/BillingXpert.jpg);
-//		JLable
+//		
+//		JLabel img1=new JLabel();
+//		ImageIcon img=new ImageIcon(/BillingXpert/img/BillingXpert.jpg);
+//		img1.setIcon(img);
+//		add(img1);
+		
 		
 		textField = new JTextField();
 		textField.setBounds(208, 327, 236, 32);
