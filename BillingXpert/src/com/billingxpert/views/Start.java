@@ -1,29 +1,32 @@
 package com.billingxpert.views;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Start {
 
-	private JFrame frame;
+	private JFrame frameStart;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Start window = new Start();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+
+		try {
+			new Start();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			new LoginPage();
+
+		}
+
 	}
-	// These other files are made and you first have to work on start and login.java files i.e create their gui????
 
 	/**
 	 * Create the application.
@@ -34,11 +37,31 @@ public class Start {
 
 	/**
 	 * Initialize the contents of the frame.
+	 * 
+	 * @throws InterruptedException
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameStart = new JFrame();
+		frameStart.setBounds(100, 100, 412, 353);
+		frameStart.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		JLabel imageLabel = new JLabel();
+		imageLabel.setBounds(144, 27, 203, 178);
+		ImageIcon image_1 = new ImageIcon(ClassLoader.getSystemResource("res/images/billingXpert.png"));
+		Image image_2 = image_1.getImage().getScaledInstance(405, 349, Image.SCALE_DEFAULT);
+		imageLabel.setIcon(new ImageIcon(image_2));
+		frameStart.getContentPane().add(imageLabel);
+		frameStart.setVisible(true);
+
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException ie) {
+			ie.printStackTrace();
+		} finally {
+			frameStart.dispose();
+		}
+//		new LoginPage();
+//		frameStart.dispose();
 	}
 
 }
