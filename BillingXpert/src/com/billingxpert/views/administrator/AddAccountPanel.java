@@ -10,6 +10,10 @@ import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import com.billingxpert.DTO.Account;
+import com.billingxpert.service.AccountServiceFactory;
 
 public class AddAccountPanel<E> extends JPanel {
 
@@ -18,7 +22,6 @@ public class AddAccountPanel<E> extends JPanel {
 	 */
 	private static final long serialVersionUID = 42122L;
 	private JTextField nameTextField;
-	private JTextField accountGroupTextField;
 	private JTextField openingBalanceTextField;
 	private JTextField addressTextField;
 	private JTextField gstinTextField;
@@ -50,18 +53,6 @@ public class AddAccountPanel<E> extends JPanel {
 		nameTextField.setBounds(220, 105, 270, 35);
 		add(nameTextField);
 		nameTextField.setColumns(10);
-
-		JLabel accountGroupLabel = new JLabel("Account Group*");
-		accountGroupLabel.setFont(new Font("Tempus Sans ITC", Font.BOLD, 20));
-		accountGroupLabel.setBounds(30, 200, 160, 35);
-		add(accountGroupLabel);
-
-		accountGroupTextField = new JTextField();
-		accountGroupLabel.setLabelFor(accountGroupTextField);
-		accountGroupTextField.setFont(new Font("Segoe UI Variable", Font.PLAIN, 20));
-		accountGroupTextField.setColumns(10);
-		accountGroupTextField.setBounds(220, 200, 245, 35);
-		add(accountGroupTextField);
 
 		JLabel openingBalanceLabel = new JLabel("Opening Balance");
 		openingBalanceLabel.setFont(new Font("Tempus Sans ITC", Font.BOLD, 20));
@@ -124,6 +115,25 @@ public class AddAccountPanel<E> extends JPanel {
 		add(phoneNumberTextField);
 
 		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Account account = new Account();
+				account.setAccountName(nameTextField.getText());
+				account.setAddress(addressTextField.getText());
+				account.setEmailId(emailTextField.getText());
+				account.setGstin(gstinTextField.getText());
+				try {
+					account.setOpeningBalance(Double.parseDouble(openingBalanceTextField.getText()));
+				}
+				catch(NumberFormatException nexp) {
+					account.setOpeningBalance(0.0);
+				}
+				account.setPhoneNumber(phoneNumberTextField.getText());
+				AccountServiceFactory.getAccountService().addAccount(account);
+				 
+				
+			}
+		});
 		saveButton.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 25));
 		saveButton.setBounds(445, 563, 171, 44);
 		add(saveButton);

@@ -66,7 +66,7 @@ public class AddReceiptPanel extends JPanel {
 
 		voucherNumberTextField = new JTextField();
 		voucherNumberTextField.setFont(fontSegoe);
-		voucherNumberTextField.setBounds(636, 103, 186, 35);
+		voucherNumberTextField.setBounds(495, 103, 107, 35);
 		add(voucherNumberTextField);
 		voucherNumberTextField.setColumns(10);
 		
@@ -76,15 +76,15 @@ public class AddReceiptPanel extends JPanel {
 		dateFormattedTextField.setBounds(116, 108, 167, 35);
 		add(dateFormattedTextField);
 		
-		JLabel voucherNumberLabel = new JLabel("Vch No. :");
+		JLabel voucherNumberLabel = new JLabel("Vch No.");
 		voucherNumberLabel.setLabelFor(voucherNumberTextField);
 		voucherNumberLabel.setFont(fontTempus);
-		voucherNumberLabel.setBounds(493, 105, 102, 35);
+		voucherNumberLabel.setBounds(371, 105, 75, 35);
 		add(voucherNumberLabel);
 		
 		JButton saveButton = new JButton("Save");
 		saveButton.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 25));
-		saveButton.setBounds(335, 500, 171, 44);
+		saveButton.setBounds(333, 342, 171, 44);
 		add(saveButton);
 		
 		JPanel receiptPanel = new JPanel();
